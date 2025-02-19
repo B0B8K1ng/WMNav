@@ -6,7 +6,7 @@
         content="Project page of WMNav">
   <meta name="keywords" content="WMNav">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MNav: Empowering Object Goal Navigation via Using VLM as World Models</title>
+  <title>WMNav: Empowering Object Goal Navigation via Using VLM as World Models</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -50,14 +50,6 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-    </div>
 
   </div>
 </nav>
@@ -68,32 +60,28 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">WMNav: Empowering Object Goal Navigation via Using VLM as World Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+              Dujun Nie<sup>1,*</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+              Xianda Guo<sup>2,*</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+              Yiqun Duan<sup>3,*</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+              Ruijun Zhang<sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              Long Chen<sup>1,4,†</sup>,
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block"><sup>1</sup>Institute of Automation, Chinese Academy of Sciences,</span>
+            <span class="author-block"><sup>2</sup>School of Computer Science, Wuhan University,</span>
+            <span class="author-block"><sup>3</sup>School of Computer Science, University of Technology Sydney,</span>
+            <span class="author-block"><sup>4</sup>Waytous</span>
           </div>
 
           <div class="column has-text-centered">
@@ -108,44 +96,18 @@
                   <span>Paper</span>
                 </a>
               </span>
+              <!-- GitHub link -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
+                <!-- <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                class="external-link button is-normal is-rounded is-dark"> -->
+                <a target="_blank" class="external-link button is-normal is-rounded is-dark"
+                  style="border: 2px solid gray; background-color: gray; color: white;">
                   <span class="icon">
-                      <i class="ai ai-arxiv"></i>
+                    <i class="fab fa-github"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>Code (coming soon)</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
 
           </div>
@@ -238,48 +200,45 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Object Goal Navigation —-requiring an agent to locate a specific object in an unseen environment—-remains a core challenge in embodied AI.
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            Although recent progress in Vision-Language Model (VLM)-–based agents have demonstrated promising perception and decision-making through prompting,
+            none has yet established a fully modular world-model design. We propose WMNav, a framework mainly consists of five distinct modules—perception, planning, cost estimation, memory management, and action.
+            By decomposing according to a human-like thinking process,
+            WMNav effectively alleviates model hallucination by making decisions based on the feedback difference between word model plan and observation.
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            The system subsequently evaluates task costs and executes actions until the object is found.
+            To further boost efficiency, we incorporate a dynamic Exploration Value Map and implement a two-phase action strategy: broad exploration followed by precise localization.
+            On HM3D, WMNav surpasses state-of-the-art methods in both success rate and exploration efficiency.
+            WMNav reaches SR 58.1$\%$(+3.2$\%$ to SOTA) and SPL 31.1$\%$(+6.8$\%$ to SOTA).
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Method Overview -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <div class="content">
+                <h2 class="title is-3">Method Overview</h2>
+                <img src="static/images/pipeline.png" alt="WMNav" class="center-image blend-img-background">
+                <div class="level-set has-text-justified">
+                  <p class="has-text-justified">
+                    <b>The WMNav framework.</b> After acquiring RGB-D images and pose information from the environment, WMNav primarily involves three processes. First, it predicts the probability of the goal appearing in different directions within the panoramic image, while simultaneously updating the Exploration Value Map in memory. Then, based on the map, the scores of each direction are projected back onto the panoramic image, and the direction with the highest score is selected. Second, the new subtask is determined based on the selected image and the last subtask feedback. Third, the subtask and the image with the action space constructed by the Action proposer\/Goal proposer are used to determine the final polar coordinate vector action for execution.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <!--/ Paper video. -->
+    </section>
   </div>
 </section>
 
