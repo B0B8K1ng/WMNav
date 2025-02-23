@@ -178,7 +178,7 @@
         <div class="column is-four-fifths">
           <div class="content">
             <h2 class="title is-3">Method Overview</h2>
-            <img src="static/images/method.jpg" alt="WMNav" class="center-image blend-img-background">
+            <img src="static/images/method.jpg" alt="WMNav" class="center-image blend-img-background" style="width: 100%; max-width: 100%; height: auto;">
             <div class="level-set has-text-justified">
               <p class="has-text-justified">
                 <b>The WMNav framework.</b> After acquiring RGB-D images and pose information from the environment, WMNav primarily involves three processes. First, it predicts the probability of the goal appearing in different directions within the panoramic image, while simultaneously updating the Exploration Value Map in memory. Then, based on the map, the scores of each direction are projected back onto the panoramic image, and the direction with the highest score is selected. Second, the new subtask is determined based on the selected image and the last subtask feedback. Third, the subtask and the image with the action space constructed by the Action proposer and Goal proposer are used to determine the final polar coordinate vector action for execution.
