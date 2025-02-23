@@ -6,7 +6,7 @@
         content="Project page of WMNav">
   <meta name="keywords" content="WMNav">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WMNav: Empowering Object Goal Navigation via Using VLM as World Models</title>
+  <title>WMNav</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -186,6 +186,24 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+      <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+            <p class="has-text-justified">
+              <b>The WMNav framework.</b> After acquiring RGB-D images and pose information from the environment, WMNav primarily involves three processes. First, it predicts the probability of the goal appearing in different directions within the panoramic image, while simultaneously updating the Exploration Value Map in memory. Then, based on the map, the scores of each direction are projected back onto the panoramic image, and the direction with the highest score is selected. Second, the new subtask is determined based on the selected image and the last subtask feedback. Third, the subtask and the image with the action space constructed by the Action proposer and Goal proposer are used to determine the final polar coordinate vector action for execution.
+            </p>
+        </div>
+      <div class="hero-body">
+        <img id="over" src="./static/images/method.jpg" alt="Overview" height="100%">
+      </div>
       </div>
     </div>
   </div>
