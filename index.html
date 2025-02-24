@@ -82,6 +82,10 @@
             <span class="author-block"><sup>2</sup>School of Computer Science, Wuhan University,</span>
             <span class="author-block"><sup>3</sup>School of Computer Science, University of Technology Sydney,</span>
             <span class="author-block"><sup>4</sup>Waytous</span>
+            <span class="eql-cntrb" style="display: block;">
+                <small><sup>*</sup>Indicates Equal Contribution,&nbsp;</small>
+                <small><sup>†</sup>Indicates Corresponding Author.</small>
+              </span>
           </div>
 
           <div class="column has-text-centered">
@@ -194,20 +198,15 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <h2 class="title is-3">Navigation process</h2>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
+            Use the slider here to observe the specific navigation process.
           </p>
         </div>
         <div class="columns is-vcentered interpolation-panel">
           <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
+            <img src="./static/images/start.png"
                  class="interpolation-image"
                  alt="Interpolate start reference image."/>
             <p>Start Frame</p>
@@ -221,7 +220,7 @@
                    step="1" min="0" max="100" value="0" type="range">
           </div>
           <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
+            <img src="./static/images/end.png"
                  class="interpolation-image"
                  alt="Interpolation end reference image."/>
             <p class="is-bold">End Frame</p>
@@ -236,67 +235,70 @@
   </div>
 </section>
 
+<style>
+  .title.is-3 {
+    text-align: center;
+  }
+</style>
 
-
-
-<!-- End video carousel R2R -->
-<section class="hero is-small">
+<section class="section">
+  <div class="container is-max-desktop">
+  <h2 class="title is-3">Results of WMNav on HM3D</h2>
   <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3">Results of WMNav on HM3D</h2>
-      <!-- <h3 class="title is-5">Results on HM3D</h3> -->
-      <div id="results-carousel-teaser1" class="carousel results-carousel">
-
-        <div class="item item-video10">
-          <video poster="" id="video10" autoplay playsinline controls muted  height="100%">
-            <source src="static/videos/demo.mp4"
-            type="video/mp4">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-hm3d_demo_1">
+          <video poster="" id="hm3d_demo_1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/demo_148.mp4"
+                    type="video/mp4">
           </video>
         </div>
-        <div class="item item-video11">
-          <video poster="" id="video11" autoplay playsinline controls muted  height="100%">
-            <source src="static/videos/demo.mp4"
-            type="video/mp4">
+        <div class="item item-hm3d_demo_2">
+          <video poster="" id="hm3d_demo_2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/demo_409.mp4"
+                    type="video/mp4">
           </video>
         </div>
-        <div class="item item-video12">
-          <video poster="" id="video12" autoplay playsinline controls muted  height="100%">
-            <source src="static/videos/demo.mp4"
-            type="video/mp4">
+        <div class="item item-hm3d_demo_3">
+          <video poster="" id="hm3d_demo_3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/demo_552.mp4"
+                    type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </div>
+  </div>
 </section>
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop has-text-centered">
-      <h2 class="title is-3">Results of WMNav on MP3D</h2>
-      <!-- <h3 class="title is-5">Results on HM3D</h3> -->
-      <div id="results-carousel-teaser1" class="carousel results-carousel">
 
-        <div class="item item-video10">
-          <video poster="" id="video10" autoplay playsinline controls muted  height="100%">
-            <source src="static/videos/demo.mp4"
-            type="video/mp4">
+<section class="section">
+  <div class="container is-max-desktop">
+  <h2 class="title is-3">Results of WMNav on MP3D</h2>
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-mp3d_demo_1">
+          <video poster="" id="mp3d_demo_1" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/demo_0.mp4"
+                    type="video/mp4">
           </video>
         </div>
-        <div class="item item-video11">
-          <video poster="" id="video11" autoplay playsinline controls muted  height="100%">
-            <source src="static/videos/demo.mp4"
-            type="video/mp4">
+        <div class="item item-mp3d_demo_2">
+          <video poster="" id="mp3d_demo_2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/demo_454.mp4"
+                    type="video/mp4">
           </video>
         </div>
-        <div class="item item-video12">
-          <video poster="" id="video12" autoplay playsinline controls muted  height="100%">
-            <source src="static/videos/demo.mp4"
-            type="video/mp4">
+        <div class="item item-mp3d_demo_3">
+          <video poster="" id="mp3d_demo_3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/demo_1328.mp4"
+                    type="video/mp4">
           </video>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
