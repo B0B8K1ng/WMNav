@@ -60,7 +60,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">WMNav: Empowering Object Goal Navigation via Using VLM as World Models</h1>
+          <h1 class="title is-1 publication-title">WMNav: Integrating Visual-Language Models into World Models for Object Goal Navigation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Dujun Nie<sup>1,*</sup>,</span>
@@ -73,7 +73,7 @@
               Ruijun Zhang<sup>1</sup>,
             </span>
             <span class="author-block">
-              Long Chen<sup>1,4,†</sup>,
+              Long Chen<sup>1,4,5,†</sup>,
             </span>
           </div>
 
@@ -81,7 +81,8 @@
             <span class="author-block"><sup>1</sup>Institute of Automation, Chinese Academy of Sciences,</span>
             <span class="author-block"><sup>2</sup>School of Computer Science, Wuhan University,</span>
             <span class="author-block"><sup>3</sup>School of Computer Science, University of Technology Sydney,</span>
-            <span class="author-block"><sup>4</sup>Waytous</span>
+            <span class="author-block"><sup>4</sup>IAIR, Xi'an Jiaotong University,</span>
+            <span class="author-block"><sup>5</sup>Waytous</span>
             <span class="eql-cntrb" style="display: block;">
                 <small><sup>*</sup>Indicates Equal Contribution,&nbsp;</small>
                 <small><sup>†</sup>Indicates Corresponding Author.</small>
@@ -141,19 +142,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Object Goal Navigation--requiring an agent to locate a specific object in an unseen environment--remains a core challenge in embodied AI.
-          </p>
-          <p>
-            Although recent progress in Vision-Language Model (VLM)--based agents have demonstrated promising perception and decision-making through prompting,
-            none has yet established a fully modular world-model design. We propose WMNav, a framework mainly consists of five distinct modules--perception, planning, cost estimation, memory management, and action.
-            By decomposing according to a human-like thinking process,
-            WMNav effectively alleviates model hallucination by making decisions based on the feedback difference between word model plan and observation.
-          </p>
-          <p>
-            The system subsequently evaluates task costs and executes actions until the object is found.
-            To further boost efficiency, we incorporate a dynamic Exploration Value Map and implement a two-phase action strategy: broad exploration followed by precise localization.
-            On HM3D, WMNav surpasses state-of-the-art methods in both success rate and exploration efficiency.
-            WMNav reaches SR 58.1%(+3.2% to SOTA) and SPL 31.1%(+6.8% to SOTA).
+            Object Goal Navigation-requiring an agent to locate a specific object in an unseen environment-remains a core challenge in embodied AI.
+            Although recent progress in Vision-Language Model (VLM)-–based agents has demonstrated promising perception and decision-making abilities through prompting,
+            none has yet established a fully modular world model design that reduces risky and costly interactions with the environment by predicting the future state of the world.
+            We introduce WMNav, a novel World Model-based Navigation framework powered by Vision-Language Models (VLMs). It predicts possible outcomes of decisions and builds memories to provide feedback to the policy module.
+            To retain the predicted state of the environment, WMNav proposes the online maintained Curiosity Value Map as part of the world model memory to provide dynamic configuration for navigation policy.
+            By decomposing according to a human-like thinking process, WMNav effectively alleviates the impact of model hallucination by making decisions based on the feedback difference between the world model plan and observation.
+            To further boost efficiency, we implement a two-stage action proposer strategy: broad exploration followed by precise localization.
+            Extensive evaluation on HM3D and MP3D validates WMNav surpasses existing zero-shot benchmarks in both success rate and exploration efficiency (absolute improvement: +3.2% SR and +3.2% SPL on HM3D, +13.5% SR and +1.1% SPL on MP3D).
           </p>
         </div>
       </div>
@@ -181,7 +177,12 @@
       <h2 class="title is-3">Method Overview</h2>
         <div class="content has-text-justified">
             <p class="has-text-justified">
-              <b>The WMNav framework.</b> After acquiring RGB-D images and pose information from the environment, WMNav primarily involves three processes. First, it predicts the probability of the goal appearing in different directions within the panoramic image, while simultaneously updating the Exploration Value Map in memory. Then, based on the map, the scores of each direction are projected back onto the panoramic image, and the direction with the highest score is selected. Second, the new subtask is determined based on the selected image and the last subtask feedback. Third, the subtask and the image with the action space constructed by the Action proposer and Goal proposer are used to determine the final polar coordinate vector action for execution.
+              <b>The WMNav framework.</b> After acquiring the RGB-D panoramic image and pose information at step $t$, the PredictVLM first predicts the state of the world,
+              and the state is merged with the curiosity value map $s_{t-1}$ from the previous step to get the current curiosity value map $s_t$.
+              After that, the updated map projects the scores of each direction back onto the panoramic image, and the direction with the highest score is selected.
+              Secondly, given the selected direction image, the new subtask and the goal flag are determined by PlanVLM and are stored in memory as cost $c_t$, and the memory $h_t$ is combined by $s_t$ and $c_t$.
+              Finally, the two-stage action proposer annotates the action sequence on the selected image and sends it into ReasonVLM to obtain the final polar coordinate vector action $a_t$ for execution.
+              Note that PlanVLM and ReasonVLM are configured by the cost $c_{t-1}$.
             </p>
         </div>
       <div class="hero-body">
