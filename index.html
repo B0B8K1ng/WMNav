@@ -7,7 +7,8 @@
   <meta name="keywords" content="WMNav">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WMNav</title>
-
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -154,18 +155,18 @@
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-<!--    &lt;!&ndash; Paper video. &ndash;&gt;-->
-<!--    <div class="columns is-centered has-text-centered">-->
-<!--      <div class="column is-four-fifths">-->
-<!--        <h2 class="title is-3">Video</h2>-->
-<!--        <div class="publication-video">-->
-<!--          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"-->
-<!--                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash;/ Paper video. &ndash;&gt;-->
+    / Abstract.
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/watch?v=RnHtHueHGtg"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
   </div>
 </section>
 
@@ -178,11 +179,11 @@
         <div class="content has-text-justified">
             <p class="has-text-justified">
               <b>The WMNav framework.</b> After acquiring the RGB-D panoramic image and pose information at step $t$, the PredictVLM first predicts the state of the world,
-              and the state is merged with the curiosity value map $s_{t-1}$ from the previous step to get the current curiosity value map $s_t$.
+              and the state is merged with the curiosity value map \(s_{t-1}\) from the previous step to get the current curiosity value map \(s_t\).
               After that, the updated map projects the scores of each direction back onto the panoramic image, and the direction with the highest score is selected.
-              Secondly, given the selected direction image, the new subtask and the goal flag are determined by PlanVLM and are stored in memory as cost $c_t$, and the memory $h_t$ is combined by $s_t$ and $c_t$.
-              Finally, the two-stage action proposer annotates the action sequence on the selected image and sends it into ReasonVLM to obtain the final polar coordinate vector action $a_t$ for execution.
-              Note that PlanVLM and ReasonVLM are configured by the cost $c_{t-1}$.
+              Secondly, given the selected direction image, the new subtask and the goal flag are determined by PlanVLM and are stored in memory as cost \(c_t\), and the memory $h_t$ is combined by \(s_t\) and \(c_t\).
+              Finally, the two-stage action proposer annotates the action sequence on the selected image and sends it into ReasonVLM to obtain the final polar coordinate vector action \(a_t\) for execution.
+              Note that PlanVLM and ReasonVLM are configured by the cost \(c_{t-1}\).
             </p>
         </div>
       <div class="hero-body">
